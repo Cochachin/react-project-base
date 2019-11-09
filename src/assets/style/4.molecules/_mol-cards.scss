@@ -1,0 +1,11 @@
+.mol-cards{
+    @include layoutFlex();
+    @include directionFlex(row);
+    padding: 2px 0px;
+    &--boxtext{
+        width: 100%;
+    }
+    &--image{
+        width: 100px;
+    }    
+}

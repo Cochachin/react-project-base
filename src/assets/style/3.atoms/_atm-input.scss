@@ -1,0 +1,13 @@
+.atm-input{
+    outline: none;
+    //border: none;
+    width: 100%;
+    padding: 10px 12px;
+    background-color: $white_1;
+}
+
+.atm-input-search{
+    @extend .atm-input;
+    padding-right: 30px;
+    @include border-radius(8px, $grey_2);
+}

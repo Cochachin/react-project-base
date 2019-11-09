@@ -1,0 +1,10 @@
+.icon-search{
+    color: $grey_2;
+    font-size: 22px;
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    &:hover{
+        cursor: pointer;
+    }
+}

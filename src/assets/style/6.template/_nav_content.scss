@@ -1,0 +1,31 @@
+.nav_content{
+    @include layoutFlex();
+    @include directionFlex(column);
+    position: relative;
+    height: 100%;
+    &--boxtext{
+        padding: 14px 0px;
+    }
+    &--text{
+        color: $blue_1;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    &--boxinputsearch{
+        padding: 0px 10px;
+    }
+}
+
+.nav-container{
+    width: 100%;
+    position: absolute;
+}
+
+.nav-container-list{
+    padding: 112px 6px 6px 4px;
+    height: 100%;
+    &--scroll{
+        height: 100%;
+        overflow-y: auto;
+    }
+}
