@@ -1,11 +1,14 @@
 .mol-cards{
     @include layoutFlex();
     @include directionFlex(row);
-    padding: 2px 0px;
+    padding: 10px 10px;
     &--boxtext{
         width: 100%;
     }
     &--image{
         width: 100px;
+    }
+    &:hover{
+        cursor: pointer;
     }    
 }

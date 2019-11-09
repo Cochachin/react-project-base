@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { InputSearchComponent } from '../../../shared/components/input/InputSearchComponent';
-import { CardsComponent } from '../cards/CardsComponebt';
+import { CardsComponent } from '../cards/CardsComponent';
 
 export class RestaurantComponent extends Component{
     render(){
@@ -19,8 +19,11 @@ export class RestaurantComponent extends Component{
                 <div className="nav-container-list">
                     <div className="nav-container-list--scroll">
                         <CardsComponent/>
+                        <div className="atm-line"></div>
                         <CardsComponent/>
+                        <div className="atm-line"></div>
                         <CardsComponent/>
+                        <div className="atm-line"></div>
                         <CardsComponent/>
                     </div>
                 </div>

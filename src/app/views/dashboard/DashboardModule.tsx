@@ -8,8 +8,18 @@ export class DashBoardModule extends Component{
                 <div className="content-dash--nav">
                     <RestaurantComponent/>
                 </div>
-                <div>
-                    <span>Hola mundo</span>
+                <div className="content-dash--view">
+                    <div className="content-dash--view--center">
+                        <div className="content-dash--view--center--item_1">
+                            <span>Hola mundo</span>
+                        </div>
+                        <div className="content-dash--view--center--item_2">
+                            <span>Hola mundo</span>
+                        </div>
+                    </div>
+                    <div className="content-dash--view--right">
+                        <span>Hola mundo</span>
+                    </div>
                 </div>
             </main>
         )

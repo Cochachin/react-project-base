@@ -9,6 +9,26 @@
         border: 1px solid $grey_3;
         box-shadow: 2px 0 4px 0 $grey_3;
         height: 100%;
-        width: 350px;
+        width: 500px;
+    }
+    &--view{
+        @include layoutFlex();
+        @include directionFlex(row);
+        @include justifyContent(flex-end);
+        width: 100%;
+        &--right{
+            width: 120px;
+            border-left: 1px solid $grey_3;
+            //box-shadow: 2px 0 4px 0 $grey_3;
+        }
+        &--center{
+            width: 100%;
+            &--item_1{
+                height: 40%
+            }
+            &--item_2{
+                height: 60%;
+            }
+        }
     }
 }

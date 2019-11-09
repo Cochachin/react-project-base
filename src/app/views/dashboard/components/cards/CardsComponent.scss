@@ -1,0 +1,19 @@
+@import '../../../../../assets/style/1.settings/_color';
+.cmp-cards-text{
+    color: $black_1;
+}
+
+.cmp-cards-address{
+    color: $black_2;
+    p{
+        font-size: 0.8rem;
+    }
+}
+
+.cmp-cards-star{
+    padding: 4px 0px;
+    color: $black_1;
+    p{
+        font-size: 0.76rem;
+    }
+}
