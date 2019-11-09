@@ -1,0 +1,32 @@
+/*@mixin placeholder() {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content
+    }
+}*/
+@mixin placeholder($color, $size) {
+    &::-webkit-input-placeholder {
+        color: $color !important;
+        font-size: $size !important;
+    }
+    &::-moz-placeholder {
+        color: $color !important;
+        font-size: $size !important;
+    }
+    &:-ms-input-placeholder {
+        color: $color !important;
+        font-size: $size !important;
+    }
+    &:-moz-placeholder {
+        color: $color !important;
+        font-size: $size !important;
+    } 
+}

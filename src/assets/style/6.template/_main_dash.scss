@@ -1,0 +1,10 @@
+.content-dash{
+    height: 100%;
+    @include layoutFlex();
+    @include directionFlex(row);
+    &--nav{
+        background-color: red;
+        height: 100%;
+        width: 280px;
+    }
+}
