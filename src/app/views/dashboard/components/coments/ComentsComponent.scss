@@ -1,0 +1,25 @@
+@import '../../../../../assets/style/2.utils/_flex_box';
+@import '../../../../../assets/style/2.utils/border_radius';
+@import '../../../../../assets/style/1.settings/_color';
+.cmp-coment{
+    padding: 8px 16px;
+    @include border-radius-none(8px);
+    background-color: $grey_3;
+    p{
+        font-size: 0.8rem;
+        color: $black_1;
+    }
+    &--shared{
+        @include layoutFlex();
+        @include directionFlex(row);
+        @include justifyContent(flex-end);
+        div{
+            padding: 4px 8px;
+            span{
+                display: inline-block;
+                padding: 0px 6px;
+                color: $black_1;
+            }
+        }
+    }
+}

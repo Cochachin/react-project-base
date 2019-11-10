@@ -1,0 +1,22 @@
+.atm-button{
+    outline: none;
+    color: $white_1;
+    background-color: $blue_1;
+    padding: 10px 48px;
+    @include border-radius(4px, $blue_1);
+    font-size: 0.88rem;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.atm-button-large{
+    width: 100%;
+}
+
+.atm-button-green{
+    background-color: $green_1;
+    padding: 12px 30px;
+    font-size: 0.96rem;
+    @include border-radius(4px, $green_1);
+}

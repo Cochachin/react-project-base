@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { RestaurantComponent } from './components/restaurant/RestaurantComponent';
+import { InputMessageComponent } from '../shared/components/input/InputMessageComponent';
+import { ComentsComponent } from './components/coments/ComentsComponent';
 
 export class DashBoardModule extends Component{
     render(){
@@ -14,7 +16,18 @@ export class DashBoardModule extends Component{
                             <span>Hola mundo</span>
                         </div>
                         <div className="content-dash--view--center--item_2">
-                            <span>Hola mundo</span>
+                            <div className="content-list-coment">
+                                <ComentsComponent />
+                                <div className="atm-line-space"></div>
+                                <ComentsComponent />
+                                <div className="atm-line-space"></div>
+                                <ComentsComponent />
+                                <div className="atm-line-space"></div>
+                                <ComentsComponent />
+                            </div>
+                            <div className="content-list-message">
+                                <InputMessageComponent/>
+                            </div>
                         </div>
                     </div>
                     <div className="content-dash--view--right">

@@ -1,0 +1,22 @@
+.cmp-auth{
+    height: 100%;
+    background-color: $grey_1;
+    @include layoutFlex();
+    @include directionFlex(column);
+    @include justifyContent(center);
+    &--content{
+        @include layoutFlex();
+        @include directionFlex(row);
+        @include justifyContent(center);
+        &--text{
+            padding: 0px 40px;
+        }
+        h1{
+            color: $blue_1;
+            font-size: 2.0rem;
+        }
+        &--login{
+            width: 300px;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@import '../../../../assets/style/1.settings/_color';
+@import '../../../../assets/style/2.utils/_flex_box';
+.cmp-register-modal{
+    &--header{
+        @include layoutFlex();
+        @include directionFlex(row);
+        @include justifyContent(space-between);
+        h1{
+            font-size: 2.0rem;
+        }
+        span, h1{
+            color: $black_1;
+        }
+        &--close{
+            font-size: 1.8rem;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    &--term{
+        p{
+            padding: 10px 0px;
+            color: $black_2;
+            font-size: 0.86rem;
+        }
+    }
+}
+
+.cmp-register{
+    &--names{
+        padding: 14px 0px;
+        @include layoutFlex();
+        @include directionFlex(row);
+        &--item{
+            width: 50%;
+        }
+        div{
+            label{
+                display: inline-block;
+                width: 100%;
+            }
+        }
+    }
+    &--password{
+        padding: 14px 0px;
+    }
+    &--button{
+        text-align: center;
+    }
+}
+.space{
+    width: 20px;
+}

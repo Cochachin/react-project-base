@@ -9,5 +9,24 @@
 .atm-input-search{
     @extend .atm-input;
     padding-right: 30px;
+    color: $black_1;
     @include border-radius(8px, $grey_2);
 }
+
+.atm-input-message{
+    @extend .atm-input;
+    resize: none;
+    color: $black_1;
+    padding-right: 48px;
+    padding-left: 20px;
+    @include border-radius(26px, $blue_1);
+}
+.input-text-area{
+    position: relative;
+}
+
+.atm-input-radius{
+    @include border-radius(8px, $grey_2);
+}
+
+//.atm-input
