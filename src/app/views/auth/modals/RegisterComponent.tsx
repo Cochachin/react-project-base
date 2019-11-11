@@ -6,7 +6,9 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import './RegisterComponent.scss';
 
 export class RegisterComponent extends Component<ModalProps>{
-
+    constructor(props: ModalProps){
+        super(props);
+    }
     render(){
         return(
             <div className="cmp-register-modal">
@@ -19,32 +21,55 @@ export class RegisterComponent extends Component<ModalProps>{
                         <FontAwesomeIcon icon={faTimesCircle}/>
                     </span>
                 </div>
-                <form className="cmp-register">
+                <form className="cmp-register" onSubmit={this.handleSubmit}>
                     <div className="cmp-register--names">
                         <div className="cmp-register--names--item">
                             <label>
-                                <InputComponent type="text" place="Nombres"/>
+                                <InputComponent 
+                                    type="text" 
+                                    place="Nombres"
+                                    name=""
+                                    onChange=""
+                                    invalid={false}
+                                    />    
                             </label>
                         </div>
                         <div  className="space"></div>
                         <div className="cmp-register--names--item">
                             <label>
-                                <InputComponent type="text" place="Apellidos"/>
+                                <InputComponent 
+                                    type="text" 
+                                    place="Apellidos"
+                                    name=""
+                                    invalid={false}
+                                    onChange=""/>
                             </label>
                         </div>
                     </div>
                     <div>
                         <label>
-                            <InputComponent type="text" place="Email"/>
+                            <InputComponent 
+                                type="text"
+                                place="Email"
+                                name=""
+                                invalid={false}
+                                onChange=""
+                            />
                         </label>
                     </div>
                     <div className="cmp-register--password">
                         <label>
-                            <InputComponent type="password" place="Contraseña"/>
+                            <InputComponent 
+                                type="password" 
+                                place="Contraseña"
+                                name=""
+                                invalid={false}
+                                onChange=""
+                                />
                         </label>
                     </div>
                     <div className="cmp-register--button">
-                        <button className="atm-button atm-button-green">Registrate</button>
+                        <button type="submit" className="atm-button atm-button-green">Registrate</button>
                     </div>
                 </form>
                 <div className="cmp-register-modal--term">
@@ -53,6 +78,10 @@ export class RegisterComponent extends Component<ModalProps>{
                     </p>
                 </div>
             </div>
-        )
+        );
+    }
+
+    public handleSubmit(event:any):void{
+        console.log(event);
     }
 }

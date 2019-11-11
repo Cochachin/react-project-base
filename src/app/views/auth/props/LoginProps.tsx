@@ -4,6 +4,6 @@ export interface LoginProps{
     
 }
 
-export interface ChildComponentProps extends RouteComponentProps<any> {
+export interface LoginComponentProps extends RouteComponentProps<any> {
     /* other props for ChildComponent */
 }

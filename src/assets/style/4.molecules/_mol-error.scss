@@ -1,0 +1,8 @@
+.mol-error{
+    font-size: 0.7rem;
+    color: $red_1;
+}
+
+.mol-error-border{
+    @include border-radius(8px, $red_1);
+}

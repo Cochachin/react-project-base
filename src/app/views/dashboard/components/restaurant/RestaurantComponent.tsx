@@ -8,7 +8,7 @@ export class RestaurantComponent extends Component{
             <div className="nav_content">
                 <div className="nav-container">
                     <div className="nav_content--boxtext">
-                        <h1 className="nav_content--text">Restaurante Perú</h1>
+                        <h1 className="nav_content--text">Compara tú restaurante</h1>
                     </div>
                     <div className="nav_content--boxinputsearch">
                         <div>
