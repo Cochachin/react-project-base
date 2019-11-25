@@ -3,6 +3,11 @@
     color: $red_1;
 }
 
+.mol-error-container{
+    text-align: center;
+    padding: 4px;
+}
+
 .mol-error-border{
     @include border-radius(8px, $red_1);
 }

@@ -1,0 +1,25 @@
+@import '../../../../../assets/style/1.settings/_color';
+@import '../../../../../assets/style/2.utils/_flex_box';
+@import '../../../../../assets/style/2.utils/_border_radius';
+
+.cmp-header{
+    position: relative;
+    height: 100%;
+    padding: 8px 40px;
+    @include layoutFlex();
+    @include directionFlex(row);
+    @include justifyContent(space-between);
+    &--profile{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &--text{
+        padding: 8px 0px;
+        p{
+            color: $black_2;
+            font-size: 1.2rem;
+        }
+    }
+}

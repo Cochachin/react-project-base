@@ -46,9 +46,15 @@
         padding: 14px 0px;
     }
     &--button{
+        padding: 14px 0px 0px 0px;
         text-align: center;
     }
 }
 .space{
     width: 20px;
+}
+.text-message{
+    padding: 2px 0px;
+    color: $black_2;
+    text-align: center;
 }

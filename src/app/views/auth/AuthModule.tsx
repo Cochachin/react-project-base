@@ -7,7 +7,7 @@ export class AuthModule extends Component{
             <div className="cmp-auth">
                 <div className="cmp-auth--content">
                     <div className="cmp-auth--content--text">
-                        <h1>Compara tú restaurante</h1>
+                        <h1>Gastón compara tú restaurante </h1>
                         <p>Inicio de sesión</p>
                     </div>
                     <div className="cmp-auth--content--login">

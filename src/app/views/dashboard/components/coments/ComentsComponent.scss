@@ -1,7 +1,7 @@
 @import '../../../../../assets/style/2.utils/_flex_box';
 @import '../../../../../assets/style/2.utils/border_radius';
 @import '../../../../../assets/style/1.settings/_color';
-.cmp-coment{
+.cmp-comment{
     padding: 8px 16px;
     @include border-radius-none(8px);
     background-color: $grey_3;
@@ -9,7 +9,26 @@
         font-size: 0.8rem;
         color: $black_1;
     }
+    &--text{
+        padding: 10px 0px;
+    }
+    &--emoticon{
+        @include layoutFlex();
+        @include directionFlex(row);
+        @include justifyContent(space-between);
+        &--type{
+            width: 50px;
+        }
+        &--profile{
+            @include layoutFlex();
+            @include directionFlex(row);
+            &--text{
+                padding: 10px 8px; 
+            }
+        }
+    }
     &--shared{
+        padding: 10px 0px;
         @include layoutFlex();
         @include directionFlex(row);
         @include justifyContent(flex-end);
@@ -21,5 +40,30 @@
                 color: $black_1;
             }
         }
+    }
+    &--reponse{
+        padding: 0px 0px 20px 0px;
+        @include layoutFlex();
+        @include directionFlex(row);
+        &--profile{
+            @include layoutFlex();
+            @include directionFlex(row);
+        }
+        &--text{
+            div{
+                padding: 4px;
+                @include border-radius(16px, $white_1);
+                background-color: $white_1;
+            }
+        }
+    }
+}
+
+.user-text-response{
+    padding: 4px 8px;
+    width: 160px;
+    p{
+        color: $blue_0;
+        font-weight: bolder;
     }
 }

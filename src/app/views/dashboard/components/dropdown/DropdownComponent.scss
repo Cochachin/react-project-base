@@ -1,0 +1,30 @@
+@import '../../../../../assets/style/1.settings/_color';
+@import '../../../../../assets/style/2.utils/_border_radius';
+@import '../../../../../assets/style/2.utils/_flex_box';
+
+.cmp-dropdown{
+    z-index: 100;
+    position: absolute;
+    top: 64px;
+    right: 30px;
+    width: 300px;
+    background-color: $white_1;
+    @include border-radius-solid-bottom(10px, $grey_1);
+    box-shadow: 2px 2px 4px 0 $grey_3;
+    &--space{
+        padding: 10px 2px;
+        p{
+            text-align: center;
+            color: $black_1;
+        }
+    }
+    &--button{
+
+    }
+    &--profile{
+        padding: 20px 0px;
+        @include layoutFlex();
+        @include directionFlex(row);
+        @include justifyContent(center);
+    }
+}

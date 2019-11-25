@@ -9,6 +9,11 @@ import { customStyles }  from '../../constant/CustumStyles';
 import { withRouter } from 'react-router-dom';
 import { FormEmailValid } from '../../../helpers/FormEmailValid';
 import { ErrorComponent } from '../../../shared/components/error/ErrorComponent';
+import { connect } from 'react-redux';
+import { LoginRequest } from '../../../../model/dto/LoginRequest';
+import { LoginAction } from '../../../../actions/LoginAction';
+import { RegisterUserAction } from '../../../../actions/RegisterUserAction';
+import { RegisterUserRequest } from '../../../../model/dto/RegisterUserRequest';
 
 class LoginComponent extends Component<LoginComponentProps, LoginState>{
     constructor(props: LoginComponentProps){
@@ -17,13 +22,12 @@ class LoginComponent extends Component<LoginComponentProps, LoginState>{
             showModal: false,
             email: '',
             password: '',
-            formError: {
-                email: '',
-                password: ''
-            },
             emailValid: true,
             passwordValid: true,
-            formValid: true
+            formValid: true,
+            loader: true,
+            message: "",
+            response: false
         };
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -35,7 +39,7 @@ class LoginComponent extends Component<LoginComponentProps, LoginState>{
     render(){
         return(
             <div className="cmp-login-from">
-                <form onSubmit={this.handleLogin}>
+                <form onSubmit={this.handleLogin} autoComplete="off">
                     <div>
                         <label>
                             <InputComponent 
@@ -61,10 +65,13 @@ class LoginComponent extends Component<LoginComponentProps, LoginState>{
                         <ErrorComponent flag={this.state.passwordValid} message="Password inválido"/>                    
                     </div>
                     <div>
-                        <button className="atm-button atm-button-large">Entrar</button>
+                        <button className="atm-button atm-button-large">
+                            {this.state.loader ? 'Entrar': 'Cargando...'}
+                        </button>
                     </div>
                 </form>
                 <div>
+                    <p className="mol-error mol-error-container">{this.state.message}</p>
                     <a>¿Has olvidado los datos de la cuenta?</a>
                 </div>
                 <div className="cmp-login-from--line">
@@ -78,7 +85,7 @@ class LoginComponent extends Component<LoginComponentProps, LoginState>{
                     style={customStyles}
                     contentLabel="Registrar usuario"
                 >
-                    <RegisterComponent closeModal={this.handleCloseModal}/>
+                    <RegisterComponent closeModal={this.handleCloseModal} subscribe={this.props.subscribe_register} registerPost={this.props.registerPost}/>
                 </ReactModal>
             </div>
         )
@@ -101,32 +108,78 @@ class LoginComponent extends Component<LoginComponentProps, LoginState>{
     }
 
     public handleLogin(event: any):void{
-        event.preventDefault(); 
-        this.props.history.push("/dash");
+        event.preventDefault();
+        let request = new LoginRequest();
+        request.password = this.state.password;
+        request.email = this.state.email;
+        if(this.validEmailPassword(this.state)){
+            this.setState({loader: false});
+            this.props.loginPost(request).then(() =>{
+                this.setState(this.props.subscribe)
+                if(this.state.response)
+                    this.props.history.push("/dash");
+                else
+                    this.setState(this.props.subscribe);
+    
+            }).catch((error: any) =>{
+                console.log(error);
+            });
+        }
     }
 
     public emailOnChance(event: any):void{
         const name = event.target.name;
         const value = event.target.value;
-        this.setState((state: LoginState, props:LoginComponentProps) =>{
-            state.email = value;
-            state = FormEmailValid.validateField(name, value, state);
-            return state;
-        })
+        let temp = FormEmailValid.validateInputEmail(name, value, this.state);
+        this.setState(temp);
     }
 
     public passwordOnChange(event: any):void{
         const name = event.target.name;
         const value = event.target.value;
-        this.setState((state: LoginState, props:LoginComponentProps) =>{
-            state.password = value;
-            state = FormEmailValid.validFieldPassword(name, value, state);
-            return state;
-        })
+        let temp = FormEmailValid.validFieldPassword(name, value, this.state);
+        this.setState(temp);
+    }
+
+    public validEmailPassword(state: LoginState):boolean{
+        let response = false;
+        if(this.state.email.length <= 0)
+            this.setState({emailValid: false})
+        
+        if(this.state.password.length <= 0)
+            this.setState({passwordValid: false})
+
+        if(state.emailValid && state.passwordValid)
+            response = true;
+
+        return response;
+    }
+
+    public componentWillMount():void {
+        ReactModal.setAppElement('body');
     }
 
 }
 
-const LoginComponentNav = withRouter(LoginComponent as any);
+const mapStateToProps = (state: any) =>{
+    return{
+        subscribe: state.LoginReducer,
+        subscribe_register: state.RegisterReducer
+    }
+}
+
+const mapDispatchToProps = (dispatch:any) =>{
+    return{
+        loginPost: async(request: LoginRequest) =>{
+            await LoginAction.auth(dispatch, request);
+        },
+        registerPost: async(request: RegisterUserRequest) =>{
+            await RegisterUserAction.register(dispatch, request);
+        }
+    }
+}
+
+
+const LoginComponentNav = withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginComponent) as any);
 
 export default LoginComponentNav;

@@ -1,26 +1,34 @@
 export class FormEmailValid{
-    public static validateField(fieldName: any, value: any, state: any):any{
-        let fieldValidationErrors = state.formError;
-        let emailValid = state.emailValid;
-        emailValid = (value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) ? true:false;
-        fieldValidationErrors.email = (emailValid) ? 'is invalid' : '';
-        state.formError = fieldValidationErrors;
-        state.emailValid = emailValid;
+
+    public static validateInputText(fieldName: any, value: any, state: any):any{
+        let onlyTextValid = (value.match(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$/)) ? true:false;
+        state[`${fieldName}`] = value;
+        state[`${fieldName}Valid`] = onlyTextValid;
+        return state;
+    }
+
+    public static validateInputEmail(fieldName: any, value: any, state: any):any{
+        let emailValid = (value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) ? true:false;
+        state[`${fieldName}`] = value;
+        state[`${fieldName}Valid`] = emailValid;
         return state;
     }
 
     public static validFieldPassword(fieldName: any, value: any, state: any):any{
-        let fieldValidationErrors = state.formError;
-        let passwordValid = state.passordValid;
-        console.log(value)
+        let passwordValid = false;
         if(value.length > 0)
             passwordValid = true;
-        else
-            passwordValid = false;
         
-        fieldValidationErrors.password = (passwordValid) ? 'is invalid' : '';
-        state.formError = fieldValidationErrors;
-        state.passwordValid = passwordValid;
+        state[`${fieldName}`] = value;
+        state[`${fieldName}Valid`] = passwordValid;
+
+        return state;
+    }
+
+    public static validateInputNumber(fieldName: any, value: any, state: any):any{
+        let emailValid = (value.match(/^[0-9]+$/)) ? true:false;
+        state[`${fieldName}`] = value;
+        state[`${fieldName}Valid`] = emailValid;
         return state;
     }
 }
