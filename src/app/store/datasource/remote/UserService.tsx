@@ -3,7 +3,7 @@ import { Header } from './Header';
 import { URL_BASE } from './Enviroments';
 import { StorageService } from '../local/StorageService';
 
-export class SearchService extends Base{
+export class UserService extends Base{
     private headers: Header;
     private url: string;
     private storage: StorageService;
@@ -14,10 +14,10 @@ export class SearchService extends Base{
         this.url = URL_BASE;
     }
 
-    public searchRestaurant(search: string):Promise<any>{
+    public getUser():Promise<any>{
         return new Promise((resolve, reject) =>{
             let login = this.storage.getToken();
-            this.url = this.url + "/restaurant/?search=" + search;
+            this.url = this.url + "/auth/users?user_id=" + login.user_id;
             this.get(this.url, this.headers.getAuthenticationHeader(login.token)).then((resp: any) =>{
                 resolve(resp.data);
             }).catch((error: any) =>{

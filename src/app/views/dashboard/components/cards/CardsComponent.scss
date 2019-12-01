@@ -15,5 +15,9 @@
     color: $black_1;
     p{
         font-size: 0.76rem;
+        span{
+            display: inline-block;
+            padding: 0px 6px 0px 0px;
+        }
     }
 }

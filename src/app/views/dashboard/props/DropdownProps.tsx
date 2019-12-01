@@ -1,3 +1,6 @@
+import { Person } from "../../../model/entity/Person";
+
 export interface DropdownProps{
-    dropdownClick: any
+    dropdownClick: any,
+    person: Person
 }

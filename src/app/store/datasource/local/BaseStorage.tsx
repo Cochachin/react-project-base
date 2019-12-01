@@ -1,5 +1,4 @@
 export class BaseStorage{
-    constructor(){}
 
     public save(key:string, value: object | string): void{
         localStorage.setItem(key, JSON.stringify(value));

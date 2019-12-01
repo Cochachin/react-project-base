@@ -50,3 +50,16 @@
 .content-list-message{
     padding: 0px 10px;
 }
+
+.content-nofound{
+    height: 100%;
+    @include layoutFlex();
+    @include directionFlex(column);
+    @include justifyContent(center);
+    @include alignItems(center);
+    h1{
+        font-weight: 600;
+        color: $black_2;
+        font-size: 2.2rem;
+    }
+}

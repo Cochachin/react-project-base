@@ -5,3 +5,9 @@ export interface InputProps{
     onChange: any,
     invalid: boolean
 }
+
+export interface InputChangeProps{
+    onChangeInput?: any,
+    name: string,
+    placeholder: string
+}
