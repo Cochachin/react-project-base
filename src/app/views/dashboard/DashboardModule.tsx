@@ -49,8 +49,8 @@ export class DashBoardModule extends Component<RoorProps, RootState>{
                         </div>
                         <div className="content-dash--view--center--item_2">
                             <div className="content-list-coment">
-                                { comments.length > 0 ? (comments.map((item: any)=>
-                                    <div key={item.key}>
+                                { comments.list.length > 0 ? (comments.list.map((item: any)=>
+                                    <div key={item.id}>
                                         <ComentsComponent onChangeInput={ this.props.register_replay_comment } comment={item}/>
                                         <div className="atm-line-space"></div>
                                     </div>    

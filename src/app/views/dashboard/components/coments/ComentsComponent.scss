@@ -43,8 +43,11 @@
     }
     &--reponse{
         padding: 0px 0px 20px 0px;
-        @include layoutFlex();
-        @include directionFlex(row);
+        &--container{
+            @include layoutFlex();
+            @include directionFlex(row);
+            padding-bottom: 10px;
+        }
         &--profile{
             @include layoutFlex();
             @include directionFlex(row);

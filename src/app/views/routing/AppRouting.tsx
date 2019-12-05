@@ -8,12 +8,19 @@ import Store from '../../store/Store';
 import ReactGA from 'react-ga';
 import { Constant } from '../../model/constant/Constant';
 
-ReactGA.initialize(Constant.GOOGLE_ANALYTICS);
+ReactGA.initialize(
+    Constant.GOOGLE_ANALYTICS,
+    {debug: true}
+);
+ReactGA.event({
+    category: 'User',
+    action: 'Hello world'
+});
 const history = createBrowserHistory();
 history.listen((location) => {
     //console.log(location);
     ReactGA.set({ page: location.pathname });
-    ReactGA.pageview(location.pathname)
+    ReactGA.pageview(location.pathname);
   }
 );
 

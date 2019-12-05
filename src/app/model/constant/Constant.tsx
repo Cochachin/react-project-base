@@ -6,5 +6,5 @@ export class Constant{
     public static SAD = "negativo";
     public static MOTIONICON_HAPPY = "/img/happy.png";
     public static MOTIONICON_SAD = "/img/sad.png";
-    public static GOOGLE_ANALYTICS = "UA-153643668-1";
+    public static GOOGLE_ANALYTICS = "UA-153754523-1";
 }

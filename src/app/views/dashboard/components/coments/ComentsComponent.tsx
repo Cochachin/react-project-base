@@ -48,13 +48,14 @@ export class ComentsComponent extends Component<CommentProps, {}>{
                 </div>
                 <div className="cmp-comment--reponse">
                     { this.props.comment.comment_replay.map((item: Comment_replay) =>
-                        <div>
+                        <div className="cmp-comment--reponse--container" key={item.id}>
                             <div className="cmp-comment--reponse--profile">
                                 <div className="user-profile user-profile-small">
                                     <span>{ item.user.getFirstLetterName() }</span>
                                 </div>
                                 <div className="user-text-response">
                                     <p>{ item.user.fullName + " " + item.user.sureName }</p>
+                                    <p>{ item.user.email }</p>
                                 </div>
                             </div>
                             <div className="cmp-comment--reponse--text">

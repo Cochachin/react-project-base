@@ -9,7 +9,7 @@
         border: 1px solid $grey_3;
         box-shadow: 2px 0 4px 0 $grey_3;
         height: 100%;
-        width: 500px;
+        width: 520px;
     }
     &--view{
         @include layoutFlex();
@@ -61,5 +61,13 @@
         font-weight: 600;
         color: $black_2;
         font-size: 2.2rem;
+    }
+}
+
+@media screen and (min-width: $xlarge) {
+    .content-dash{
+        &--nav{
+            width: 600px;   
+        }
     }
 }

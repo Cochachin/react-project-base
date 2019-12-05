@@ -3,7 +3,6 @@ import { Constant } from '../constant/Constant';
 import { Comment_replay } from './Comment_replay';
 
 export class Comment{
-    key: number;
     id: string;
     message: string;
     person: Person;
@@ -11,7 +10,6 @@ export class Comment{
     comment_replay: Array<Comment_replay>;
     constructor(data?:any){
         if(!data) data = {};
-        this.key = 0;
         this.id = data.id;
         this.message = data.message;
         this.person = new Person(data.user);
@@ -35,7 +33,7 @@ export class Comment{
         return response;
     }
 
-    public setKey(key: number):void{
-        this.key = key;
+    public addReplayComment(data: Comment_replay):void{
+        this.comment_replay.unshift(data);
     }
 }
