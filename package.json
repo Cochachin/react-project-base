@@ -23,7 +23,7 @@
     "formik": "^2.0.3",
     "formix": "0.0.1",
     "local-storage": "^2.0.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "path": "^0.12.7",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
